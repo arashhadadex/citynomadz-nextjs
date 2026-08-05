@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  /* ------------------------------------------------------------------
+     City Nomads — editorial travelling-palette
+     Warm paper grounds, ink text, terracotta + olive accents.
+     Built to age well: high-contrast, low-saturation, print-like.
+  ------------------------------------------------------------------ */
+  --color-paper: #f5f0e7;
+  --color-cream: #fbf7f0;
+  --color-scrim: #efe7d8;
+  --color-ink: #201d17;
+  --color-soil: #38342b;
+  --color-muted: #6b635a;
+  --color-line: #ddd3c3;
+  --color-faint: #cbbfaa;
+
+  --color-terra: #bf4b2a;
+  --color-terra-deep: #9c3c20;
+  --color-olive: #5f6640;
+  --color-oak: #7a4a2b;
+  --color-bay: #45677e;
+
+  --color-night: #232720;
+  --color-night-soft: #2c3128;
+  --color-mist: #efe9da;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-mono-plex), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------- base ---------------- */
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* Lenis smooth-scroll (fallback so content is still scrollable if JS fails) */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-terra);
+    color: var(--color-cream);
+  }
+
+  /* Thin custom scrollbar, quiet by design */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 99px;
+    border: 2px solid var(--color-paper);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-faint);
+  }
+}
+
+/* ---------------- utilities ---------------- */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ---------------- components ---------------- */
+
+/* Eyebrow / micro-label — mono, uppercase, tracked */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* A thin editorial rule with a terra tick */
+.rule {
+  height: 1px;
+  background: var(--color-line);
+}
+
+/* Underline that draws from left with terracotta */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.6s var(--ease-out-expo);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Film-grain texture overlay for an analogue, printed feel */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Slow drifting for the hero halo */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.08);
+  }
+}
+.animate-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+
+/* Large display headline */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* Aura ring — hollow circle, used on the wordmark / hero */
+.aura {
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-drift {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
