@@ -7,7 +7,7 @@ import { DestinationCard } from "@/components/destinations/DestinationCard";
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "The handful of countries City Nomads knows well — Armenia and Greece — with honest guides, lived costs and field notes.",
+    "The handful of countries City Nomadz knows well — Armenia and Greece — with honest guides, lived costs and field notes.",
 };
 
 export default function DestinationsPage() {

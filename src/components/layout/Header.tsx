@@ -100,7 +100,7 @@ export function Header() {
                   </motion.a>
                 ))}
               </nav>
-              <p className="eyebrow text-muted">City Nomads · {new Date().getFullYear()}</p>
+              <p className="eyebrow text-muted">City Nomadz · {new Date().getFullYear()}</p>
             </div>
           </motion.div>
         )}

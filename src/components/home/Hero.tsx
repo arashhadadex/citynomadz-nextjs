@@ -100,7 +100,7 @@ export function Hero() {
 
         <div className="mt-10 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <p className="max-w-md text-pretty text-lg leading-relaxed text-muted">
-            City Nomads is an independent field journal on the nomadic life.
+            City Nomadz is an independent field journal on the nomadic life.
             We go slow, stay long, and write only about places we have
             actually lived.
           </p>

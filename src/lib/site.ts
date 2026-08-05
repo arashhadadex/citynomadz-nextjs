@@ -1,12 +1,12 @@
 export const site = {
-  name: "City Nomads",
-  legal: "City Nomads",
-  domain: "citynomads.org",
-  url: "https://citynomads.org",
+  name: "City Nomadz",
+  legal: "City Nomadz",
+  domain: "citynomadz.org",
+  url: "https://citynomadz.org",
   tagline: "Slow travel, lived long. Field notes from the quietest corners of the world.",
   description:
-    "City Nomads is an independent field journal for the nomadic life — grounded guides, honest costs, and long stays in a handful of countries we actually know.",
-  email: "hello@citynomads.org",
+    "City Nomadz is an independent field journal for the nomadic life — grounded guides, honest costs, and long stays in a handful of countries we actually know.",
+  email: "hello@citynomadz.org",
   since: "2026",
 };
 

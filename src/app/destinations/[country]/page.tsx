@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${meta.name} — A nomad's field guide`,
     description: meta.blurb,
     openGraph: {
-      title: `${meta.name} — ${meta.tagline} · City Nomads`,
+      title: `${meta.name} — ${meta.tagline} · City Nomadz`,
       description: meta.blurb,
     },
   };

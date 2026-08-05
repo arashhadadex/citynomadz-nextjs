@@ -8,13 +8,13 @@ export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="City Nomads — home"
+      aria-label="City Nomadz — home"
       className={`group inline-flex items-center gap-3 ${className}`}
     >
       <Mark aria-hidden />
       <span className="display text-[1.15rem] leading-none tracking-tight text-ink">
         City
-        <span className="text-terra">&nbsp;Nomads</span>
+        <span className="text-terra">&nbsp;Nomadz</span>
       </span>
     </Link>
   );

@@ -8,7 +8,7 @@ import { stats } from "@/lib/site";
 gsap.registerPlugin(ScrollTrigger);
 
 const text =
-  "We are not tourists and we are not expats. We are wanderers with wifi, people who stay somewhere just long enough to stop being strangers — then leave before it becomes routine. Nomads value the fresh eyes almost as much as we value a home. City Nomads exists to pass those fresh eyes on to you.";
+  "We are not tourists and we are not expats. We are wanderers with wifi, people who stay somewhere just long enough to stop being strangers — then leave before it becomes routine. Nomads value the fresh eyes almost as much as we value a home. City Nomadz exists to pass those fresh eyes on to you.";
 
 export function Manifesto() {
   const ref = useRef<HTMLDivElement>(null);

@@ -13,7 +13,7 @@ export function Footer() {
               <span className="relative grid h-9 w-9 place-items-center">
                 <Mark className="text-mist" />
               </span>
-              <span className="display text-2xl text-mist">City Nomads</span>
+              <span className="display text-2xl text-mist">City Nomadz</span>
             </div>
             <p className="mt-5 max-w-sm text-pretty text-sm leading-relaxed text-mist/60">
               An independent field journal on the nomadic life — slow travel,

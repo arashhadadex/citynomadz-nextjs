@@ -7,7 +7,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "How City Nomads works — who writes it, how we choose places, and how the guides stay honest.",
+    "How City Nomadz works — who writes it, how we choose places, and how the guides stay honest.",
 };
 
 const principles = [
@@ -58,7 +58,7 @@ export default function AboutPage() {
           <Reveal delay={0.15}>
             <div className="mt-10 max-w-2xl space-y-5 text-pretty text-lg leading-relaxed text-soil">
               <p>
-                City Nomads is a one-person field journal on the nomadic life.
+                City Nomadz is a one-person field journal on the nomadic life.
                 It began as a habit — keeping a notebook while moving slowly
                 between {site.domain.split(".")[0]} corners of the world — and
                 grew into a place where the notes could be shared.

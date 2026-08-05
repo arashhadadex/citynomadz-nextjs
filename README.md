@@ -1,4 +1,4 @@
-# City Nomads — citynomads.org
+# City Nomadz — citynomadz.org
 
 An independent field journal on the nomadic life. Slow travel, long stays, and
 honest costs from the handful of countries we actually live in — Armenia and
@@ -58,4 +58,4 @@ wrangler.jsonc      Cloudflare worker config
 open-next.config.ts OpenNext adapter config
 ```
 
-© 2026 City Nomads
+© 2026 City Nomadz
