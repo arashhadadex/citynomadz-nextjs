@@ -98,9 +98,13 @@ export default async function DestinationPage({ params }: Params) {
           <Reveal delay={0.2} y={30}>
             <div className="relative overflow-hidden rounded-sm border border-line">
               <img
-                src={`/art/${meta.slug}.svg`}
-                alt={`${meta.name} — field note artwork`}
+                src={`/art/${meta.slug}-city-1200.webp`}
+                srcSet={`/art/${meta.slug}-city-480.webp 480w, /art/${meta.slug}-city-720.webp 720w, /art/${meta.slug}-city-960.webp 960w, /art/${meta.slug}-city-1200.webp 1200w`}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                alt={`${meta.capital} — the capital of ${meta.name}`}
                 className="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-night/70 px-5 py-4 text-mist backdrop-blur-sm">
                 <span className="eyebrow">{meta.capital}</span>
