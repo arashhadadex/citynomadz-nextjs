@@ -19,7 +19,9 @@ export function DestinationCard({
         className={`relative overflow-hidden ${tall ? "aspect-[4/5]" : "aspect-[4/5]"} rounded-sm`}
       >
         <img
-          src={`/art/${d.slug}.webp`}
+          src={`/art/${d.slug}-1200.webp`}
+          srcSet={`/art/${d.slug}-480.webp 480w, /art/${d.slug}-720.webp 720w, /art/${d.slug}-960.webp 960w, /art/${d.slug}-1200.webp 1200w`}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 94vw"
           alt={`${d.name} — ${d.tagline}`}
           width={1024}
           height={1365}
