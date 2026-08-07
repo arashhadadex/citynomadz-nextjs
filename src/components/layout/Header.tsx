@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, type MouseEventHandler } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { nav } from "@/lib/site";
 import { Wordmark } from "@/components/ui/Wordmark";
@@ -63,12 +62,6 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <Link
-              href="/destinations"
-              className="rounded-full border border-ink/20 px-5 py-2 eyebrow text-ink transition-colors hover:border-terra hover:text-terra"
-            >
-              Begin here
-            </Link>
           </nav>
 
           <button
