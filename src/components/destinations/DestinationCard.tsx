@@ -19,10 +19,13 @@ export function DestinationCard({
         className={`relative overflow-hidden ${tall ? "aspect-[4/5]" : "aspect-[4/5]"} rounded-sm`}
       >
         <img
-          src={`/art/${d.slug}.svg`}
-          alt={d.name}
+          src={`/art/${d.slug}.webp`}
+          alt={`${d.name} — ${d.tagline}`}
+          width={1024}
+          height={1365}
           className="h-full w-full scale-[1.01] object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-night/70 via-night/10 to-transparent" />
 
