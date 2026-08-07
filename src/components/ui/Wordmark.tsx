@@ -1,14 +1,22 @@
 import Link from "next/link";
+import type { MouseEventHandler } from "react";
 
 /**
  * Brand mark. Two concentric dots + a moving second dot reads as a
  * "city in motion" orbit, while the mark itself stays quiet and modular.
  */
-export function Wordmark({ className = "" }: { className?: string }) {
+export function Wordmark({
+  className = "",
+  onClick,
+}: {
+  className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+}) {
   return (
     <Link
       href="/"
       aria-label="City Nomadz — home"
+      onClick={onClick}
       className={`group inline-flex items-center gap-3 ${className}`}
     >
       <Mark aria-hidden />

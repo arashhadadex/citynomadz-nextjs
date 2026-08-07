@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEventHandler } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { nav } from "@/lib/site";
@@ -9,11 +9,13 @@ import { Wordmark } from "@/components/ui/Wordmark";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
     setHidden(latest > prev && latest > 120);
+    setScrolled(latest > 24);
   });
 
   useEffect(() => {
@@ -23,16 +25,33 @@ export function Header() {
     };
   }, [open]);
 
+  // Tapping the wordmark on the home page should pull you back to the top.
+  // A same-route Link is a no-op in Next, so we catch the click and scroll.
+  const handleWordmark: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      const lenis = (window as unknown as { __lenis?: { scrollTo: (t: number, o?: object) => void } })
+        .__lenis;
+      if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (open) setOpen(false);
+  };
+
   return (
     <>
       <motion.header
         initial={{ y: -80 }}
         animate={{ y: hidden && !open ? -110 : 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-x-0 top-0 z-50"
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
+          scrolled && !open
+            ? "border-b border-line bg-paper/85 backdrop-blur-md"
+            : "border-b border-transparent"
+        }`}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-5 md:px-10">
-          <Wordmark />
+          <Wordmark onClick={handleWordmark} />
 
           <nav className="hidden items-center gap-10 md:flex">
             {nav.map((item) => (
