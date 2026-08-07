@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Clock, Coins, CloudSun } from "lucide-react";
 import { destinations, type DestinationMeta } from "@/lib/site";
-import { getDestination } from "@/lib/content";
+import { getDestination, getAllPosts } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Btn } from "@/components/ui/Button";
+import { PostCard } from "@/components/journal/PostCard";
 
 type Params = { params: Promise<{ country: string }> };
 
@@ -57,6 +58,7 @@ export default async function DestinationPage({ params }: Params) {
   const body = await renderMDX(page.content);
   const index = destinations.findIndex((d) => d.slug === country);
   const next = destinations[(index + 1) % destinations.length];
+  const related = getAllPosts().filter((p) => p.country === meta.name);
 
   return (
     <main>
@@ -206,6 +208,22 @@ export default async function DestinationPage({ params }: Params) {
             </div>
           </aside>
         </div>
+
+        {/* related articles */}
+        {related.length > 0 && (
+          <div className="mt-24">
+            <Reveal>
+              <SectionLabel number="II">Readings from {meta.name}</SectionLabel>
+            </Reveal>
+            <div className="mt-10 grid gap-10 sm:grid-cols-2">
+              {related.map((post, i) => (
+                <Reveal key={post.slug} delay={i * 0.06}>
+                  <PostCard post={post} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* next destination */}
         <div className="mt-24 flex items-center justify-between border-t border-line pt-8">
